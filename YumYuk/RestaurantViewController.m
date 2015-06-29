@@ -6,22 +6,23 @@
 //  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
 //
 
-#import "RestaurantsViewController.h"
+#import "RestaurantViewController.h"
+#import "RestaurantViewCell.h"
 
-@interface RestaurantsViewController ()
+@interface RestaurantViewController ()
 
 @end
 
-@implementation RestaurantsViewController
+@implementation RestaurantViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // Load the restaurantViewCell nib
+    UINib *restaurantNib = [UINib nibWithNibName:@"RestaurantViewCell" bundle:nil];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Register this nib as the template for new cells
+    [self.tableView registerNib:restaurantNib forCellReuseIdentifier:@"RestaurantViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,15 +44,16 @@
     return 0;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    RestaurantViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantViewCell" forIndexPath:indexPath];
     
-    // Configure the cell...
-    
+    // Configure the cell
+    cell.restaurantName.text = @"RESTNAME";
+    cell.restaurantScore.text = @"5";
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

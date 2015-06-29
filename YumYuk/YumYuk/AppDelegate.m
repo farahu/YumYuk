@@ -7,11 +7,11 @@
 //
 
 #import "AppDelegate.h"
-<<<<<<< HEAD
-#import "RestaurantsViewController.h"
-=======
+
+#import "RestaurantViewController.h"
+
 #import <Parse/Parse.h>
->>>>>>> master
+
 
 @interface AppDelegate ()
 
@@ -21,20 +21,23 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-<<<<<<< HEAD
+
+    
+    // Initializes the window
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Creates the RestaurantsViewController
-    RestaurantsViewController *rvc = [[RestaurantsViewController alloc] initWithStyle:UITableViewStylePlain];
+    RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithStyle:UITableViewStylePlain];
     // Use this view controller as the top-level view controller in the app
     self.window.rootViewController = rvc;
     
     [self.window makeKeyAndVisible];
-=======
+
     //Initialize Parse
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
     
->>>>>>> master
+
     return YES;
 }
 
