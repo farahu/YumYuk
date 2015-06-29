@@ -14,6 +14,19 @@
 		19045E001B41BF2F0040AC88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19045DFF1B41BF2F0040AC88 /* Images.xcassets */; };
 		19045E031B41BF2F0040AC88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19045E011B41BF2F0040AC88 /* LaunchScreen.xib */; };
 		19045E0F1B41BF2F0040AC88 /* YumYukTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19045E0E1B41BF2F0040AC88 /* YumYukTests.m */; };
+		B996E4E71B41C57E004EEF45 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4E51B41C57E004EEF45 /* Bolts.framework */; };
+		B996E4E81B41C57E004EEF45 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4E61B41C57E004EEF45 /* Parse.framework */; };
+		B996E4EA1B41C5A9004EEF45 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4E91B41C5A9004EEF45 /* AudioToolbox.framework */; };
+		B996E4EC1B41C5B0004EEF45 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4EB1B41C5B0004EEF45 /* CFNetwork.framework */; };
+		B996E4EE1B41C5B9004EEF45 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4ED1B41C5B9004EEF45 /* CoreGraphics.framework */; };
+		B996E4F01B41C5C1004EEF45 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4EF1B41C5C1004EEF45 /* CoreLocation.framework */; };
+		B996E4F21B41C5CA004EEF45 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4F11B41C5CA004EEF45 /* MobileCoreServices.framework */; };
+		B996E4F41B41C5D1004EEF45 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4F31B41C5D1004EEF45 /* QuartzCore.framework */; };
+		B996E4F61B41C5D8004EEF45 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4F51B41C5D8004EEF45 /* Security.framework */; };
+		B996E4F81B41C5E5004EEF45 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4F71B41C5E5004EEF45 /* StoreKit.framework */; };
+		B996E4FA1B41C5ED004EEF45 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4F91B41C5ED004EEF45 /* SystemConfiguration.framework */; };
+		B996E4FC1B41C5F9004EEF45 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4FB1B41C5F9004EEF45 /* libz.dylib */; };
+		B996E4FE1B41C602004EEF45 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4FD1B41C602004EEF45 /* libsqlite3.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +53,19 @@
 		19045E081B41BF2F0040AC88 /* YumYukTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YumYukTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19045E0D1B41BF2F0040AC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19045E0E1B41BF2F0040AC88 /* YumYukTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YumYukTests.m; sourceTree = "<group>"; };
+		B996E4E51B41C57E004EEF45 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		B996E4E61B41C57E004EEF45 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		B996E4E91B41C5A9004EEF45 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		B996E4EB1B41C5B0004EEF45 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B996E4ED1B41C5B9004EEF45 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B996E4EF1B41C5C1004EEF45 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		B996E4F11B41C5CA004EEF45 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		B996E4F31B41C5D1004EEF45 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B996E4F51B41C5D8004EEF45 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		B996E4F71B41C5E5004EEF45 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B996E4F91B41C5ED004EEF45 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B996E4FB1B41C5F9004EEF45 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		B996E4FD1B41C602004EEF45 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B996E4FE1B41C602004EEF45 /* libsqlite3.dylib in Frameworks */,
+				B996E4FC1B41C5F9004EEF45 /* libz.dylib in Frameworks */,
+				B996E4FA1B41C5ED004EEF45 /* SystemConfiguration.framework in Frameworks */,
+				B996E4F81B41C5E5004EEF45 /* StoreKit.framework in Frameworks */,
+				B996E4F61B41C5D8004EEF45 /* Security.framework in Frameworks */,
+				B996E4F41B41C5D1004EEF45 /* QuartzCore.framework in Frameworks */,
+				B996E4F21B41C5CA004EEF45 /* MobileCoreServices.framework in Frameworks */,
+				B996E4F01B41C5C1004EEF45 /* CoreLocation.framework in Frameworks */,
+				B996E4EE1B41C5B9004EEF45 /* CoreGraphics.framework in Frameworks */,
+				B996E4EC1B41C5B0004EEF45 /* CFNetwork.framework in Frameworks */,
+				B996E4EA1B41C5A9004EEF45 /* AudioToolbox.framework in Frameworks */,
+				B996E4E81B41C57E004EEF45 /* Parse.framework in Frameworks */,
+				B996E4E71B41C57E004EEF45 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +102,19 @@
 		19045DE61B41BF2F0040AC88 = {
 			isa = PBXGroup;
 			children = (
+				B996E4FD1B41C602004EEF45 /* libsqlite3.dylib */,
+				B996E4FB1B41C5F9004EEF45 /* libz.dylib */,
+				B996E4F91B41C5ED004EEF45 /* SystemConfiguration.framework */,
+				B996E4F71B41C5E5004EEF45 /* StoreKit.framework */,
+				B996E4F51B41C5D8004EEF45 /* Security.framework */,
+				B996E4F31B41C5D1004EEF45 /* QuartzCore.framework */,
+				B996E4F11B41C5CA004EEF45 /* MobileCoreServices.framework */,
+				B996E4EF1B41C5C1004EEF45 /* CoreLocation.framework */,
+				B996E4ED1B41C5B9004EEF45 /* CoreGraphics.framework */,
+				B996E4EB1B41C5B0004EEF45 /* CFNetwork.framework */,
+				B996E4E91B41C5A9004EEF45 /* AudioToolbox.framework */,
+				B996E4E51B41C57E004EEF45 /* Bolts.framework */,
+				B996E4E61B41C57E004EEF45 /* Parse.framework */,
 				19045DF11B41BF2F0040AC88 /* YumYuk */,
 				19045E0B1B41BF2F0040AC88 /* YumYukTests */,
 				19045DF01B41BF2F0040AC88 /* Products */,
@@ -347,6 +399,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = YumYuk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -357,6 +413,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = YumYuk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -416,6 +476,7 @@
 				19045E141B41BF2F0040AC88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19045E151B41BF2F0040AC88 /* Build configuration list for PBXNativeTarget "YumYukTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +485,7 @@
 				19045E171B41BF2F0040AC88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
