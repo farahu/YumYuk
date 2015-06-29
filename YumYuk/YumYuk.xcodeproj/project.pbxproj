@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		19045DF51B41BF2F0040AC88 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 19045DF41B41BF2F0040AC88 /* main.m */; };
 		19045DF81B41BF2F0040AC88 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 19045DF71B41BF2F0040AC88 /* AppDelegate.m */; };
-		19045DFB1B41BF2F0040AC88 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19045DFA1B41BF2F0040AC88 /* ViewController.m */; };
 		19045DFE1B41BF2F0040AC88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 19045DFC1B41BF2F0040AC88 /* Main.storyboard */; };
 		19045E001B41BF2F0040AC88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19045DFF1B41BF2F0040AC88 /* Images.xcassets */; };
 		19045E031B41BF2F0040AC88 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19045E011B41BF2F0040AC88 /* LaunchScreen.xib */; };
 		19045E0F1B41BF2F0040AC88 /* YumYukTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 19045E0E1B41BF2F0040AC88 /* YumYukTests.m */; };
+		97B9BBCD1B41E08E00D972D1 /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97B9BBCC1B41E08E00D972D1 /* RestaurantsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +32,14 @@
 		19045DF41B41BF2F0040AC88 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		19045DF61B41BF2F0040AC88 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		19045DF71B41BF2F0040AC88 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		19045DF91B41BF2F0040AC88 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		19045DFA1B41BF2F0040AC88 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		19045DFD1B41BF2F0040AC88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		19045DFF1B41BF2F0040AC88 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		19045E021B41BF2F0040AC88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		19045E081B41BF2F0040AC88 /* YumYukTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YumYukTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		19045E0D1B41BF2F0040AC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19045E0E1B41BF2F0040AC88 /* YumYukTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YumYukTests.m; sourceTree = "<group>"; };
+		97B9BBCB1B41E08E00D972D1 /* RestaurantsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RestaurantsViewController.h; path = ../RestaurantsViewController.h; sourceTree = "<group>"; };
+		97B9BBCC1B41E08E00D972D1 /* RestaurantsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RestaurantsViewController.m; path = ../RestaurantsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 			children = (
 				19045DF61B41BF2F0040AC88 /* AppDelegate.h */,
 				19045DF71B41BF2F0040AC88 /* AppDelegate.m */,
-				19045DF91B41BF2F0040AC88 /* ViewController.h */,
-				19045DFA1B41BF2F0040AC88 /* ViewController.m */,
+				97B9BBCB1B41E08E00D972D1 /* RestaurantsViewController.h */,
+				97B9BBCC1B41E08E00D972D1 /* RestaurantsViewController.m */,
 				19045DFC1B41BF2F0040AC88 /* Main.storyboard */,
 				19045DFF1B41BF2F0040AC88 /* Images.xcassets */,
 				19045E011B41BF2F0040AC88 /* LaunchScreen.xib */,
@@ -219,9 +219,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19045DFB1B41BF2F0040AC88 /* ViewController.m in Sources */,
 				19045DF81B41BF2F0040AC88 /* AppDelegate.m in Sources */,
 				19045DF51B41BF2F0040AC88 /* main.m in Sources */,
+				97B9BBCD1B41E08E00D972D1 /* RestaurantsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +416,7 @@
 				19045E141B41BF2F0040AC88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		19045E151B41BF2F0040AC88 /* Build configuration list for PBXNativeTarget "YumYukTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +425,7 @@
 				19045E171B41BF2F0040AC88 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

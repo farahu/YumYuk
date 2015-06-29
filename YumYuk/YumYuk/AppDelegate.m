@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "RestaurantsViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // Creates the RestaurantsViewController
+    RestaurantsViewController *rvc = [[RestaurantsViewController alloc] initWithStyle:UITableViewStylePlain];
+    // Use this view controller as the top-level view controller in the app
+    self.window.rootViewController = rvc;
+    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
