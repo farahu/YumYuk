@@ -118,5 +118,15 @@
         }
     }];
 }
-
++(void) getCommentsForMenuItem:(PFObject *)menuItem callback:(void (^)(NSArray *))callback {
+    PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_COMMENT];
+    [query whereKey:KEY_PARENT equalTo:menuItem];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
+        if(items){
+            callback(items);
+        } else {
+            NSLog(@"Error: %@", error);
+        }
+    }];
+}
 @end

@@ -40,4 +40,6 @@
 //Gets a list of all the restaurants
 +(void)getRestaurants:(void(^)(NSArray* items))callback;
 
+//Gets list of all comments for particular menuItem
++(void)getCommentsForMenuItem:(PFObject *)menuItem callback:(void(^)(NSArray* items))callback;
 @end
