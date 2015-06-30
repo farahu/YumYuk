@@ -94,6 +94,8 @@
     [comment saveInBackground];
 }
 
+
+
 //GET METHODS
 
 +(void) getMenuItemsByRestaurant:(NSString *)code callback:(void (^)(NSArray *))callback {
@@ -110,6 +112,18 @@
 
 +(void) getRestaurants:(void (^)(NSArray *))callback {
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_RESTAURANT];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
+        if(items){
+            callback(items);
+        } else {
+            NSLog(@"Error: %@", error);
+        }
+    }];
+}
+
++(void) getCommentsForMenuItem:(PFObject *)menuItem callback:(void (^)(NSArray *))callback {
+    PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_COMMENT];
+    [query whereKey:KEY_PARENT equalTo:menuItem];
     [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
         if(items){
             callback(items);
