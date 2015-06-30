@@ -157,8 +157,8 @@
 				19045DFF1B41BF2F0040AC88 /* Images.xcassets */,
 				19045E011B41BF2F0040AC88 /* LaunchScreen.xib */,
 				B996E5651B424450004EEF45 /* DatabaseAccess.h */,
-				19045DF21B41BF2F0040AC88 /* Supporting Files */,
 				B996E5661B424450004EEF45 /* DatabaseAccess.m */,
+				19045DF21B41BF2F0040AC88 /* Supporting Files */,
 			);
 			path = YumYuk;
 			sourceTree = "<group>";

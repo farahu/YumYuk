@@ -18,12 +18,10 @@
 +(void)addNewMenuItem:(NSString*)name
                  type:(NSString*)type
                  diet:(int)diet
-           restaurant:(NSString *)restaurant
-             callback:(void(^)())callback;
+           restaurant:(NSString *)restaurant;
 
 //Adds the specified restaurant
-+(void)addRestaurant:(NSString*)name
-            callback:(void(^)())callback;
++(void)addRestaurant:(NSString*)name;
 
 //Gets all of the menu items with the corresponding restaurant name
 //and returns them in the items parameters of the block, which is an
