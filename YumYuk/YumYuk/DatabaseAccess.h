@@ -20,7 +20,7 @@
 //counts to 0. Should only be called after all the restaurants are added.
 +(void)addNewMenuItem:(NSString*)name
                  type:(NSString*)type
-                 diet:(int)diet
+                 diet:(NSInteger)diet
            restaurant:(NSString *)restaurant;
 
 //Adds the specified restaurant
@@ -34,7 +34,7 @@
 
 //Gets all of the menu items with the corresponding restaurant name
 //and returns them in the items parameters of the block
-+(void)getMenuItemsByRestaurant:(NSString*)code
++(void)getMenuItemsByRestaurant:(NSString*)name
                        callback:(void(^)(NSArray* items))callback;
 
 //Gets a list of all the restaurants

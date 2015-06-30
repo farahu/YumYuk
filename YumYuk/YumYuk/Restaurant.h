@@ -12,21 +12,20 @@
 
 @property (nonatomic, copy) NSString *restaurantName;
 @property (nonatomic, copy) NSSet *dishes;
+@property (nonatomic, copy) NSString *mealType;
 
 /**
  * This is to go through the array of EATMenu items, create our own MenuItems and store them with appropriate restaurant; return an array of restaurants
  */
 + (NSMutableSet *) storeMenus: (NSArray *) menus;
 
-/**
- * This is to push all the stored restaurants and menus to parse server
- */
-+ (void) parseMenus: (NSMutableSet *) store;
 
 /**
  * This is to create restaurants with restaurant name and a list of menuItems under this restaurant
  */
-- (instancetype) initWithRestaurant: (NSString *) resName menuItems: (NSMutableSet *) d NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithRestaurant: (NSString *) resName
+                          menuItems: (NSMutableSet *) d
+                           menuType: (NSString *) mType NS_DESIGNATED_INITIALIZER;
 
 
 

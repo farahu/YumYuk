@@ -40,7 +40,7 @@
     }];
 }
 
-+(void) addNewMenuItem:(NSString *)name type:(NSString *)type diet:(int)diet
++(void) addNewMenuItem:(NSString *)name type:(NSString *)type diet:(NSInteger)diet
             restaurant:(NSString *)restaurant {
     //Create initial object
     PFObject *menuItem = [PFObject objectWithClassName:CLASSNAME_MENU_ITEM];
@@ -96,9 +96,9 @@
 
 //GET METHODS
 
-+(void) getMenuItemsByRestaurant:(NSString *)code callback:(void (^)(NSArray *))callback {
++(void) getMenuItemsByRestaurant:(NSString *)name callback:(void (^)(NSArray *))callback {
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_MENU_ITEM];
-    [query whereKey:KEY_RESTAURANT equalTo:code];
+    [query whereKey:KEY_RESTAURANT equalTo:name];
     [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
         if(items){
             callback(items);
