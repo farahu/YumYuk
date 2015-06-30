@@ -14,7 +14,7 @@
 //NOT USED IN APP, USED FOR MANAGING INITIAL DATA
 
 //Temporary test method - adds items and polls them
-// +(void) testDatabase;
+ +(void) testDatabase;
 
 //Adds a new menu item with the specified parameters, setting their upvote/downvote
 //counts to 0. Should only be called after all the restaurants are added.
@@ -43,5 +43,8 @@
 
 //Gets list of all comments for particular menuItem
 +(void)getCommentsForMenuItem:(PFObject *)menuItem callback:(void(^)(NSArray* items))callback;
+
++(void)upvoteMenuItem:(PFObject *)menuItem;
++(void)downvoteMenuItem:(PFObject *)menuItem;
 
 @end

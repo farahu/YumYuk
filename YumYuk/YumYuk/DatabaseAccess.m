@@ -14,34 +14,9 @@
 
 //TEMP METHODS
 
-/*
 +(void) testDatabase {
-    NSLog(@"Testing");
-    [DatabaseAccess addRestaurant:@"Living the Dream" code:@"ltd"];
-    [DatabaseAccess addRestaurant:@"Epic Cafe" code:@"epic"];
-    [DatabaseAccess addNewMenuItem:@"Pizza" type:@"Entree" diet:0 restaurant:@"ltd"];
-    [DatabaseAccess addNewMenuItem:@"Burger" type:@"Entree" diet:0 restaurant:@"ltd"];
-    [DatabaseAccess addNewMenuItem:@"Water" type:@"Drink" diet:0 restaurant:@"ltd"];
-    [DatabaseAccess addNewMenuItem:@"Soda" type:@"Drink" diet:0 restaurant:@"ltd"];
-    [DatabaseAccess addNewMenuItem:@"Hotdog" type:@"Entree" diet:0 restaurant:@"epic"];
-    [DatabaseAccess addNewMenuItem:@"Carrots" type:@"Side" diet:0 restaurant:@"epic"];
-    [DatabaseAccess addNewMenuItem:@"Tofu" type:@"Side" diet:0 restaurant:@"epic"];
-    [DatabaseAccess addNewMenuItem:@"Gluten Free Water" type:@"Drink" diet:2 restaurant:@"epic"];
-    
-    
-    [DatabaseAccess getRestaurants:^(NSArray *items) {
-        for(PFObject *restaurant in items){
-            [DatabaseAccess getMenuItemsByRestaurant:restaurant[KEY_CODE] callback:^(NSArray *items) {
-                NSLog(@"%@", restaurant[KEY_NAME]);
-                for (PFObject *item in items) {
-                    NSLog(@"%@", item[KEY_NAME]);
-                }
-            }];
-        }
-    }];
+
 }
- 
- */
 
 +(void) addNewMenuItem:(NSString *)name type:(NSString *)type diet:(NSInteger)diet
             restaurant:(NSString *)restaurant menuID:(int64_t)menuID {
@@ -157,6 +132,16 @@
             NSLog(@"Error: %@", error);
         }
     }];
+}
+
++(void) upvoteMenuItem:(PFObject *)menuItem {
+    menuItem[KEY_UPVOTES] = @([menuItem[KEY_UPVOTES] intValue]+1);
+    [menuItem saveInBackground];
+}
+
++(void) downvoteMenuItem:(PFObject *)menuItem {
+    menuItem[KEY_DOWNVOTES] = @([menuItem[KEY_DOWNVOTES] intValue]+1);
+    [menuItem saveInBackground];
 }
 
 @end
