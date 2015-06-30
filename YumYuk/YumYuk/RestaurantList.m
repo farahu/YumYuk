@@ -7,15 +7,24 @@
 //
 
 #import "RestaurantList.h"
+#import "DatabaseAccess.h"
+#import "RestaurantViewController.h"
 
 @implementation RestaurantList
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.restaurants = [NSMutableArray arrayWithObjects:@"epic", @"ltd", nil];
+        self.restaurants = [NSArray array];
     }
     return self;
+}
+
+-(void) loadRestaurants:(RestaurantViewController*)controller {
+    [DatabaseAccess getRestaurants:^(NSArray *items) {
+        self.restaurants = items;
+        [controller.tableView reloadData];
+    }];
 }
 
 

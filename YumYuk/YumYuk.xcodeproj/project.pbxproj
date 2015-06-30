@@ -36,6 +36,9 @@
 		F15C2E5C1B4217BE00D0A7EE /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F15C2E5B1B4217BE00D0A7EE /* MenuItem.m */; };
 		F15C2E5F1B4219A500D0A7EE /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F15C2E5E1B4219A500D0A7EE /* Restaurant.m */; };
 		F15C2E641B424DEE00D0A7EE /* menuForTest in Resources */ = {isa = PBXBuildFile; fileRef = F15C2E631B424DEE00D0A7EE /* menuForTest */; };
+		B996E5671B424450004EEF45 /* DatabaseAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = B996E5661B424450004EEF45 /* DatabaseAccess.m */; };
+		B996E5691B426FB7004EEF45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B996E5681B426FB7004EEF45 /* Main.storyboard */; };
+		B996E56C1B42FB47004EEF45 /* YYConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B996E56B1B42FB47004EEF45 /* YYConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,11 @@
 		F15C2E5D1B4219A500D0A7EE /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		F15C2E5E1B4219A500D0A7EE /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		F15C2E631B424DEE00D0A7EE /* menuForTest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = menuForTest; path = ../YumYuk/menuForTest; sourceTree = "<group>"; };
+		B996E5651B424450004EEF45 /* DatabaseAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAccess.h; sourceTree = "<group>"; };
+		B996E5661B424450004EEF45 /* DatabaseAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseAccess.m; sourceTree = "<group>"; };
+		B996E5681B426FB7004EEF45 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B996E56A1B42FB47004EEF45 /* YYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYConstants.h; sourceTree = "<group>"; };
+		B996E56B1B42FB47004EEF45 /* YYConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +180,7 @@
 				F15C2E5A1B4217BE00D0A7EE /* MenuItem.h */,
 				F15C2E5B1B4217BE00D0A7EE /* MenuItem.m */,
 				19045DF41B41BF2F0040AC88 /* main.m */,
+				B996E5681B426FB7004EEF45 /* Main.storyboard */,
 				19045DF61B41BF2F0040AC88 /* AppDelegate.h */,
 				19045DF71B41BF2F0040AC88 /* AppDelegate.m */,
 				97B9BBCE1B41ED7B00D972D1 /* RestaurantViewCell.h */,
@@ -183,6 +192,10 @@
 				97B9BBD41B42059000D972D1 /* RestaurantList.m */,
 				19045DFF1B41BF2F0040AC88 /* Images.xcassets */,
 				19045E011B41BF2F0040AC88 /* LaunchScreen.xib */,
+				B996E5651B424450004EEF45 /* DatabaseAccess.h */,
+				B996E5661B424450004EEF45 /* DatabaseAccess.m */,
+				B996E56A1B42FB47004EEF45 /* YYConstants.h */,
+				B996E56B1B42FB47004EEF45 /* YYConstants.m */,
 				19045DF21B41BF2F0040AC88 /* Supporting Files */,
 			);
 			path = YumYuk;
@@ -263,6 +276,7 @@
 				TargetAttributes = {
 					19045DEE1B41BF2F0040AC88 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 9YS79B398J;
 					};
 					19045E071B41BF2F0040AC88 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -298,6 +312,7 @@
 				19045E001B41BF2F0040AC88 /* Images.xcassets in Resources */,
 				97B9BBD21B41EDD900D972D1 /* RestaurantViewCell.xib in Resources */,
 				F15C2E641B424DEE00D0A7EE /* menuForTest in Resources */,
+				B996E5691B426FB7004EEF45 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +331,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				19045DF81B41BF2F0040AC88 /* AppDelegate.m in Sources */,
+				B996E56C1B42FB47004EEF45 /* YYConstants.m in Sources */,
 				97B9BBD51B42059000D972D1 /* RestaurantList.m in Sources */,
+				B996E5671B424450004EEF45 /* DatabaseAccess.m in Sources */,
 				19045DF51B41BF2F0040AC88 /* main.m in Sources */,
 				F15C2E3C1B42138300D0A7EE /* EATConsts.m in Sources */,
 				F15C2E431B4213C800D0A7EE /* EATMenu.m in Sources */,
@@ -443,6 +460,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -450,6 +469,8 @@
 				INFOPLIST_FILE = YumYuk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -457,6 +478,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -464,6 +487,8 @@
 				INFOPLIST_FILE = YumYuk/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
