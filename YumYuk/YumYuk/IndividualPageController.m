@@ -12,6 +12,7 @@
 #import "DatabaseAccess.h"
 #import "YYConstants.h"
 #import "MenuItemCell.h"
+#import "CommentViewController.h"
 
 @interface IndividualPageController ()
 @property (nonatomic) RestaurantList *listOfRestaurants;
@@ -56,8 +57,6 @@
         self.restIndex = rIndex;
         NSString *rName = self.listOfRestaurants.restaurants[_restIndex][KEY_NAME];
         self.navigationItem.title = rName;
-        
-        
       
     }
     return self;
@@ -74,48 +73,14 @@
     return 150;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // Create the individual page view controller
+    CommentViewController *cpc = [[CommentViewController alloc] initWithMenuItem:self.listOfRestaurants.menuItems[indexPath.row]];
+    [self.listOfRestaurants loadComments:cpc forMenuItem:self.listOfRestaurants.menuItems[indexPath.row]];
+    // Push this onto the navigation stack
+    [self showViewController:cpc sender:self];
+    
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

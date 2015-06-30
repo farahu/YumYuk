@@ -13,8 +13,8 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emX-iG-faX" id="8vQ-ds-pz4">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3of-wX-ZSH">
-                        <rect key="frame" x="518" y="56" width="45" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3of-wX-ZSH">
+                        <rect key="frame" x="518" y="56" width="45" height="22"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -22,6 +22,14 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wr-Sx-7mx">
                         <rect key="frame" x="525" y="18" width="30" height="30"/>
                         <state key="normal" title="^">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzH-9m-v76">
+                        <rect key="frame" x="525" y="92" width="30" height="32"/>
+                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="11"/>
+                        <state key="normal" title="V">
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -38,34 +46,46 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzH-9m-v76">
-                        <rect key="frame" x="525" y="99" width="30" height="30"/>
-                        <state key="normal" title="^">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJc-X3-dVk">
+                        <rect key="frame" x="399" y="111" width="75" height="30"/>
+                        <state key="normal" title="Comments">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="#" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCc-gp-Q0K">
+                        <rect key="frame" x="372" y="115" width="25" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="VJc-X3-dVk" firstAttribute="bottom" secondItem="8vQ-ds-pz4" secondAttribute="bottomMargin" id="7V8-mZ-wUX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="3of-wX-ZSH" secondAttribute="trailing" constant="27" id="8OI-l4-vRq"/>
                     <constraint firstAttribute="centerX" secondItem="MXB-Wj-Ie4" secondAttribute="centerX" constant="119.5" id="C0j-p5-oBo"/>
-                    <constraint firstItem="rzH-9m-v76" firstAttribute="centerX" secondItem="3of-wX-ZSH" secondAttribute="centerX" constant="-0.5" id="C73-eG-KEd"/>
                     <constraint firstAttribute="trailingMargin" secondItem="rzH-9m-v76" secondAttribute="trailing" constant="35" id="FeE-G3-3WK"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="rzH-9m-v76" secondAttribute="bottom" constant="12" id="IvP-jd-0RP"/>
                     <constraint firstItem="MXB-Wj-Ie4" firstAttribute="centerY" secondItem="3of-wX-ZSH" secondAttribute="centerY" constant="0.5" id="NLQ-tp-5Si"/>
+                    <constraint firstItem="rzH-9m-v76" firstAttribute="centerX" secondItem="3of-wX-ZSH" secondAttribute="centerX" constant="-0.5" id="O0P-cA-5Ja"/>
+                    <constraint firstItem="VJc-X3-dVk" firstAttribute="leading" secondItem="UCc-gp-Q0K" secondAttribute="trailing" constant="2" id="Ztq-nD-kho"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VJc-X3-dVk" secondAttribute="trailing" constant="116" id="at3-RO-qCE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rzH-9m-v76" secondAttribute="bottom" constant="17" id="b0n-4p-5r6"/>
+                    <constraint firstItem="3of-wX-ZSH" firstAttribute="top" secondItem="8vQ-ds-pz4" secondAttribute="topMargin" constant="48" id="e3s-QU-g1K"/>
                     <constraint firstItem="4Wr-Sx-7mx" firstAttribute="top" secondItem="8vQ-ds-pz4" secondAttribute="topMargin" constant="10" id="egy-o4-jrv"/>
+                    <constraint firstItem="4Wr-Sx-7mx" firstAttribute="centerX" secondItem="3of-wX-ZSH" secondAttribute="centerX" constant="-0.5" id="ke6-4t-6wh"/>
                     <constraint firstItem="4Wr-Sx-7mx" firstAttribute="trailing" secondItem="rzH-9m-v76" secondAttribute="trailing" id="oIJ-wH-BLc"/>
-                    <constraint firstItem="3of-wX-ZSH" firstAttribute="top" secondItem="8vQ-ds-pz4" secondAttribute="topMargin" constant="48" id="soj-jo-z1r"/>
-                    <constraint firstItem="4Wr-Sx-7mx" firstAttribute="centerX" secondItem="3of-wX-ZSH" secondAttribute="centerX" constant="-0.5" id="viG-2P-aQb"/>
+                    <constraint firstItem="UCc-gp-Q0K" firstAttribute="centerY" secondItem="VJc-X3-dVk" secondAttribute="centerY" constant="-0.5" id="xiu-bt-5oa"/>
                     <constraint firstItem="MXB-Wj-Ie4" firstAttribute="leading" secondItem="8vQ-ds-pz4" secondAttribute="leadingMargin" constant="2" id="yWe-lf-K3s"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="comments" destination="VJc-X3-dVk" id="bcO-ad-Rqx"/>
                 <outlet property="downvote" destination="rzH-9m-v76" id="BJM-Hx-BT6"/>
                 <outlet property="itemScore" destination="3of-wX-ZSH" id="GHh-qO-QnM"/>
                 <outlet property="menuItem" destination="MXB-Wj-Ie4" id="2fv-jQ-jDa"/>
+                <outlet property="numberOfComments" destination="UCc-gp-Q0K" id="FMC-xt-oeh"/>
                 <outlet property="upvote" destination="4Wr-Sx-7mx" id="11d-7e-zAx"/>
             </connections>
-            <point key="canvasLocation" x="559" y="464.5"/>
+            <point key="canvasLocation" x="559" y="464"/>
         </tableViewCell>
     </objects>
 </document>

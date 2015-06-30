@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *itemScore;
 @property (weak, nonatomic) IBOutlet UIButton *upvote;
 @property (weak, nonatomic) IBOutlet UIButton *downvote;
+@property (weak, nonatomic) IBOutlet UIButton *comments;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfComments;
 
 @end
