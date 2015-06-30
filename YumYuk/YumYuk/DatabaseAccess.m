@@ -20,11 +20,12 @@ NSString* const KEY_DIET = @"diet";
 NSString* const KEY_UPVOTES = @"upvotes";
 NSString* const KEY_DOWNVOTES = @"downvotes";
 NSString* const KEY_RESTAURANT = @"restaurant";
+NSString* const KEY_CODE = @"code";
 
 +(void) testDatabase {
     NSLog(@"Testing");
-    [DatabaseAccess addRestaurant:@"ltd"];
-    [DatabaseAccess addRestaurant:@"epic"];
+    [DatabaseAccess addRestaurant:@"Living the Dream" code:@"ltd"];
+    [DatabaseAccess addRestaurant:@"Epic Cafe" code:@"epic"];
     [DatabaseAccess addNewMenuItem:@"Pizza" type:@"Entree" diet:0 restaurant:@"ltd"];
     [DatabaseAccess addNewMenuItem:@"Burger" type:@"Entree" diet:0 restaurant:@"ltd"];
     [DatabaseAccess addNewMenuItem:@"Water" type:@"Drink" diet:0 restaurant:@"ltd"];
@@ -34,17 +35,15 @@ NSString* const KEY_RESTAURANT = @"restaurant";
     [DatabaseAccess addNewMenuItem:@"Tofu" type:@"Side" diet:0 restaurant:@"epic"];
     [DatabaseAccess addNewMenuItem:@"Gluten Free Water" type:@"Drink" diet:2 restaurant:@"epic"];
     
-    [DatabaseAccess getMenuItemsByRestaurant:@"epic" callback:^(NSArray *items) {
-        NSLog(@"EPIC FOOD:");
-        for (PFObject *item in items) {
-            NSLog(@"%@", item[@"name"]);
-        }
-    }];
     
-    [DatabaseAccess getMenuItemsByRestaurant:@"ltd" callback:^(NSArray *items) {
-        NSLog(@"LTD FOOD:");
-        for (PFObject *item in items) {
-            NSLog(@"%@", item[@"name"]);
+    [DatabaseAccess getRestaurants:^(NSArray *items) {
+        for(PFObject *restaurant in items){
+            [DatabaseAccess getMenuItemsByRestaurant:restaurant[KEY_CODE] callback:^(NSArray *items) {
+                NSLog(@"%@", restaurant[KEY_NAME]);
+                for (PFObject *item in items) {
+                    NSLog(@"%@", item[@"name"]);
+                }
+            }];
         }
     }];
 }
@@ -62,24 +61,33 @@ NSString* const KEY_RESTAURANT = @"restaurant";
     menuItem[KEY_DOWNVOTES] = @(0);
     menuItem[KEY_RESTAURANT] = restaurant;
     
+    NSError *error = nil;
     //Save to database
-    [menuItem save];
+    [menuItem save:&error];
+    if(error){
+        NSLog(@"ERROR: %@", error);
+    }
 }
 
-+(void) addRestaurant:(NSString *)name {
++(void) addRestaurant:(NSString *)name code:(NSString *)code{
     //Create initial object
     PFObject *restaurant = [PFObject objectWithClassName:CLASSNAME_RESTAURANT];
     
     //Set properties
     restaurant[KEY_NAME] = name;
+    restaurant[KEY_CODE] = code;
     
+    NSError *error = nil;
     //Save to database
-    [restaurant save];
+    [restaurant save:&error];
+    if(error){
+        NSLog(@"ERROR: %@", error);
+    }
 }
 
-+(void) getMenuItemsByRestaurant:(NSString *)name callback:(void (^)(NSArray *))callback {
++(void) getMenuItemsByRestaurant:(NSString *)code callback:(void (^)(NSArray *))callback {
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_MENU_ITEM];
-    [query whereKey:KEY_RESTAURANT equalTo:name];
+    [query whereKey:KEY_RESTAURANT equalTo:code];
     [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
         if(items){
             callback(items);
@@ -88,4 +96,16 @@ NSString* const KEY_RESTAURANT = @"restaurant";
         }
     }];
 }
+
++(void) getRestaurants:(void (^)(NSArray *))callback {
+    PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_RESTAURANT];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
+        if(items){
+            callback(items);
+        } else {
+            NSLog(@"Error: %@", error);
+        }
+    }];
+}
+
 @end

@@ -8,7 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@class RestaurantViewController;
+
 @interface RestaurantList : NSObject
-@property (nonatomic) NSMutableArray *restaurants;
+@property (nonatomic) NSArray *restaurants;
+
+- (instancetype)init;
+- (void) loadRestaurants:(RestaurantViewController*)controller;
 
 @end
