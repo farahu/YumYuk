@@ -31,20 +31,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    //Check for existing user id
-    NSString *userId = [[NSUserDefaults standardUserDefaults]
-                            stringForKey:@"userId"];
-    if(userId){
-        NSLog(@"Found userId: %@", userId);
-    } else {
-        userId = [[NSUUID UUID] UUIDString];
-        NSLog(@"No existing user, adding new: %@", userId);
-        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    USER_ID = userId;
-    
+    [self setUserID];
     //Initialize Parse
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
@@ -52,11 +39,11 @@
     //TEMPORARY -- test that adds things to the server then downloads them and logs them
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
      //   [DatabaseAccess testDatabase];
+        [self downloadMPKEatsData];
     });
     
     // Create an item store
     RestaurantList *restaurants = [[RestaurantList alloc] init];
-
     
     // Create a RestaurantViewController
     RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithRestaurants:restaurants];
@@ -67,12 +54,25 @@
     
     // Use nav controller as the top-level view controller
     self.window.rootViewController = navController;
+    
+    return YES;
+}
 
-    //Initialize Parse
-    [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
-                  clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
-    
-    
+-(void)setUserID{
+    NSString *userId = [[NSUserDefaults standardUserDefaults]
+                        stringForKey:@"userId"];
+    if(userId){
+        NSLog(@"Found userId: %@", userId);
+    } else {
+        userId = [[NSUUID UUID] UUIDString];
+        NSLog(@"No existing user, adding new: %@", userId);
+        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    USER_ID = userId;
+}
+
+-(void)downloadMPKEatsData {
     //get MPKEats content to our app
     EATMenuDownloader *down = [[EATMenuDownloader alloc] init];
     __block NSMutableArray *menus = nil;
@@ -104,8 +104,6 @@
         [Restaurant parseMenus:restaurantStorage];
         
     }];
-
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

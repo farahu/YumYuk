@@ -170,14 +170,7 @@
 		19045DF11B41BF2F0040AC88 /* YumYuk */ = {
 			isa = PBXGroup;
 			children = (
-				F15C2E3E1B4213C800D0A7EE /* EATMenuDownloader.h */,
-				F15C2E3F1B4213C800D0A7EE /* EATMenuDownloader.m */,
-				F15C2E401B4213C800D0A7EE /* EATMenu.h */,
-				F15C2E411B4213C800D0A7EE /* EATMenu.m */,
-				F15C2E381B42138300D0A7EE /* EATConsts.h */,
-				F15C2E391B42138300D0A7EE /* EATConsts.m */,
-				F15C2E3A1B42138300D0A7EE /* EATMenuParser.h */,
-				F15C2E3B1B42138300D0A7EE /* EATMenuParser.m */,
+				B996E56D1B43123D004EEF45 /* EATFiles */,
 				F15C2E5D1B4219A500D0A7EE /* Restaurant.h */,
 				F15C2E5E1B4219A500D0A7EE /* Restaurant.m */,
 				F15C2E5A1B4217BE00D0A7EE /* MenuItem.h */,
@@ -230,6 +223,21 @@
 				19045E0D1B41BF2F0040AC88 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B996E56D1B43123D004EEF45 /* EATFiles */ = {
+			isa = PBXGroup;
+			children = (
+				F15C2E3E1B4213C800D0A7EE /* EATMenuDownloader.h */,
+				F15C2E3F1B4213C800D0A7EE /* EATMenuDownloader.m */,
+				F15C2E401B4213C800D0A7EE /* EATMenu.h */,
+				F15C2E411B4213C800D0A7EE /* EATMenu.m */,
+				F15C2E381B42138300D0A7EE /* EATConsts.h */,
+				F15C2E391B42138300D0A7EE /* EATConsts.m */,
+				F15C2E3A1B42138300D0A7EE /* EATMenuParser.h */,
+				F15C2E3B1B42138300D0A7EE /* EATMenuParser.m */,
+			);
+			name = EATFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
