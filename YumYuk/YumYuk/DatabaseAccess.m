@@ -21,6 +21,10 @@ NSString* const KEY_UPVOTES = @"upvotes";
 NSString* const KEY_DOWNVOTES = @"downvotes";
 NSString* const KEY_RESTAURANT = @"restaurant";
 
++(void) testDatabase {
+    NSLog(@"Testing");
+}
+
 +(void) addNewMenuItem:(NSString *)name type:(NSString *)type diet:(int)diet
             restaurant:(NSString *)restaurant callback:(void (^)())callback {
     //Create initial object
@@ -61,4 +65,15 @@ NSString* const KEY_RESTAURANT = @"restaurant";
     }];
 }
 
++(void) getMenuItemsByRestaurant:(NSString *)name callback:(void (^)(NSArray *))callback {
+    PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_MENU_ITEM];
+    [query whereKey:KEY_RESTAURANT equalTo:name];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *items, NSError *error){
+        if(items){
+            callback(items);
+        } else {
+            NSLog(@"Error: %@", error);
+        }
+    }];
+}
 @end

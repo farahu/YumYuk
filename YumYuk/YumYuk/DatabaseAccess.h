@@ -10,6 +10,9 @@
 
 @interface DatabaseAccess : NSObject
 
+//Temporary test method - adds items and polls them
++(void) testDatabase;
+
 //Adds a new menu item with the specified parameters, setting their upvote/downvote
 //counts to 0. Should only be called after all the restaurants are added.
 +(void)addNewMenuItem:(NSString*)name
@@ -21,5 +24,11 @@
 //Adds the specified restaurant
 +(void)addRestaurant:(NSString*)name
             callback:(void(^)())callback;
+
+//Gets all of the menu items with the corresponding restaurant name
+//and returns them in the items parameters of the block, which is an
+//array of PGObjects
++(void)getMenuItemsByRestaurant:(NSString*)name
+                       callback:(void(^)(NSArray* items))callback;
 
 @end
