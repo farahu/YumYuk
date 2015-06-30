@@ -10,6 +10,7 @@
 @class RestaurantList;
 
 @interface IndividualPageController : UITableViewController
+
 - (instancetype)initWithRestaurantList:(RestaurantList *)rest atIndex:(NSInteger)rIndex;
 
 @end

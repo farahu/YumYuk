@@ -10,22 +10,26 @@
 #import "RestaurantList.h"
 #import <Parse/Parse.h>
 #import "DatabaseAccess.h"
+#import "YYConstants.h"
+#import "MenuItemCell.h"
 
 @interface IndividualPageController ()
 @property (nonatomic) RestaurantList *listOfRestaurants;
 @property (nonatomic) NSInteger restIndex;
+
 @end
 
 @implementation IndividualPageController
 
 - (void)viewDidLoad {
-   [super viewDidLoad];
+    [super viewDidLoad];
     
-   PFObject *restaurant = _listOfRestaurants.restaurants[_restIndex];
-    //KEY_CODE
-   [DatabaseAccess getMenuItemsByRestaurant:restaurant[@"code"] callback:^(NSArray *items) {
-       
-   }];
+    // Load the restaurantViewCell nib
+    UINib *menuNib = [UINib nibWithNibName:@"MenuItemCell" bundle:nil];
+    
+    // Register this nib as the template for new cells
+    [self.tableView registerNib:menuNib forCellReuseIdentifier:@"MenuItemCell"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,29 +46,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 1;
+    return self.listOfRestaurants.menuItems.count;
 }
 
-- (instancetype)initWithRestaurantList:(RestaurantList *)rest atIndex:(NSInteger)rIndex{
+- (instancetype)initWithRestaurantList:(RestaurantList *)rest atIndex:(NSInteger)rIndex {
     self = [super init];
     if (self) {
         self.listOfRestaurants = rest;
         self.restIndex = rIndex;
-        NSString *rName = self.listOfRestaurants.restaurants[_restIndex][@"name"];
+        NSString *rName = self.listOfRestaurants.restaurants[_restIndex][KEY_NAME];
         self.navigationItem.title = rName;
+        
+        
+      
     }
     return self;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuItemCell" forIndexPath:indexPath];
+    NSString *menuItem = self.listOfRestaurants.menuItems[indexPath.row][KEY_NAME];
+    cell.menuItem.text = menuItem;
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.

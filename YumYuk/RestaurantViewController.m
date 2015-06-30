@@ -67,8 +67,8 @@
     
     // Create the individual page view controller
     IndividualPageController *ipc = [[IndividualPageController alloc] initWithRestaurantList:_listOfRestaurants atIndex:indexPath.row];
-    
-    // Push this onto the navigation stack
+    [self.listOfRestaurants loadMenu:ipc withRestList:_listOfRestaurants andRestaurant:indexPath.row];
+     // Push this onto the navigation stack
     [self showViewController:ipc sender:self];
     
 }

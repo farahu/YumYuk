@@ -9,6 +9,8 @@
 #import "RestaurantList.h"
 #import "DatabaseAccess.h"
 #import "RestaurantViewController.h"
+#import "IndividualPageController.h"
+#import "YYConstants.h"
 
 @implementation RestaurantList
 
@@ -27,6 +29,12 @@
     }];
 }
 
-
+- (void) loadMenu:(IndividualPageController *)controller withRestList:(RestaurantList *)rest andRestaurant:(NSInteger)selectedRestaurant{
+    PFObject *restaurant = rest.restaurants[selectedRestaurant];
+    [DatabaseAccess getMenuItemsByRestaurant:restaurant[KEY_NAME] callback:^(NSArray *items) {
+        self.menuItems = items;
+        [controller.tableView reloadData];        
+    }];
+}
 @end
 
