@@ -1,0 +1,31 @@
+//
+//  YYConstants.h
+//  YumYuk
+//
+//  Created by Mauricio Narvaez on 6/30/15.
+//  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface YYConstants : NSObject
+
+FOUNDATION_EXPORT NSString* USER_ID;
+
+FOUNDATION_EXPORT NSString* const CLASSNAME_MENU_ITEM;
+FOUNDATION_EXPORT NSString* const CLASSNAME_RESTAURANT;
+FOUNDATION_EXPORT NSString* const CLASSNAME_PHOTO;
+FOUNDATION_EXPORT NSString* const CLASSNAME_COMMENT;
+
+FOUNDATION_EXPORT NSString* const KEY_NAME;
+FOUNDATION_EXPORT NSString* const KEY_TYPE;
+FOUNDATION_EXPORT NSString* const KEY_DIET;
+FOUNDATION_EXPORT NSString* const KEY_UPVOTES;
+FOUNDATION_EXPORT NSString* const KEY_DOWNVOTES;
+FOUNDATION_EXPORT NSString* const KEY_RESTAURANT;
+FOUNDATION_EXPORT NSString* const KEY_CODE;
+FOUNDATION_EXPORT NSString* const KEY_PARENT;
+FOUNDATION_EXPORT NSString* const KEY_USER;
+FOUNDATION_EXPORT NSString* const KEY_TEXT;
+
+@end

@@ -10,9 +10,9 @@
 #import "RestaurantViewController.h"
 #import "RestaurantList.h"
 #import "DatabaseAccess.h"
+#import "YYConstants.h"
 
 #import <Parse/Parse.h>
-
 
 @interface AppDelegate ()
 
@@ -21,6 +21,19 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    //Check for existing user id
+    NSString *userId = [[NSUserDefaults standardUserDefaults]
+                            stringForKey:@"userId"];
+    if(userId){
+        NSLog(@"Found userId: %@", userId);
+    } else {
+        userId = [[NSUUID UUID] UUIDString];
+        NSLog(@"No existing user, adding new: %@", userId);
+        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    USER_ID = userId;
+    
     //Initialize Parse
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];

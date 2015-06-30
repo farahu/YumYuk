@@ -8,19 +8,11 @@
 
 #import "DatabaseAccess.h"
 #import <Parse/Parse.h>
+#import "YYConstants.h"
 
 @implementation DatabaseAccess
 
-NSString* const CLASSNAME_MENU_ITEM = @"MenuItem";
-NSString* const CLASSNAME_RESTAURANT = @"Restaurant";
-
-NSString* const KEY_NAME = @"name";
-NSString* const KEY_TYPE = @"type";
-NSString* const KEY_DIET = @"diet";
-NSString* const KEY_UPVOTES = @"upvotes";
-NSString* const KEY_DOWNVOTES = @"downvotes";
-NSString* const KEY_RESTAURANT = @"restaurant";
-NSString* const KEY_CODE = @"code";
+//TEMP METHODS
 
 +(void) testDatabase {
     NSLog(@"Testing");
@@ -41,7 +33,7 @@ NSString* const KEY_CODE = @"code";
             [DatabaseAccess getMenuItemsByRestaurant:restaurant[KEY_CODE] callback:^(NSArray *items) {
                 NSLog(@"%@", restaurant[KEY_NAME]);
                 for (PFObject *item in items) {
-                    NSLog(@"%@", item[@"name"]);
+                    NSLog(@"%@", item[KEY_NAME]);
                 }
             }];
         }
@@ -84,6 +76,25 @@ NSString* const KEY_CODE = @"code";
         NSLog(@"ERROR: %@", error);
     }
 }
+
+//ADD METHODS
+
++(void) addCommentToMenuItem:(PFObject *)menuItem text:(NSString *)text {
+    //Create initial object
+    PFObject *comment = [PFObject objectWithClassName:CLASSNAME_COMMENT];
+    
+    //Set properties
+    comment[KEY_PARENT] = menuItem;
+    comment[KEY_USER] = USER_ID;
+    comment[KEY_UPVOTES] = @(0);
+    comment[KEY_DOWNVOTES] = @(0);
+    comment[KEY_TEXT] = text;
+    
+    //Save
+    [comment saveInBackground];
+}
+
+//GET METHODS
 
 +(void) getMenuItemsByRestaurant:(NSString *)code callback:(void (^)(NSArray *))callback {
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_MENU_ITEM];
