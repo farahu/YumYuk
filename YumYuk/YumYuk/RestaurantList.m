@@ -31,7 +31,7 @@
 
 - (void) loadMenu:(IndividualPageController *)controller withRestList:(RestaurantList *)rest andRestaurant:(NSInteger)selectedRestaurant{
     PFObject *restaurant = rest.restaurants[selectedRestaurant];
-    [DatabaseAccess getMenuItemsByRestaurant:restaurant[KEY_CODE] callback:^(NSArray *items) {
+    [DatabaseAccess getMenuItemsByRestaurant:restaurant[KEY_NAME] callback:^(NSArray *items) {
         self.menuItems = items;
         [controller.tableView reloadData];        
     }];
