@@ -8,9 +8,10 @@
 
 #import "RestaurantViewController.h"
 #import "RestaurantViewCell.h"
+#import "RestaurantList.h"
 
 @interface RestaurantViewController ()
-
+@property (nonatomic) RestaurantList *listOfRestaurants;
 @end
 
 @implementation RestaurantViewController
@@ -33,27 +34,33 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.listOfRestaurants.restaurants.count;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RestaurantViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantViewCell" forIndexPath:indexPath];
-    
-    // Configure the cell
-    cell.restaurantName.text = @"RESTNAME";
-    cell.restaurantScore.text = @"5";
+    NSString *rList = self.listOfRestaurants.restaurants[indexPath.row];
+    cell.restaurantName.text = rList;
     return cell;
 }
 
+- (instancetype)initWithRestaurants:(RestaurantList *)restaurantList {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        self.listOfRestaurants = restaurantList;
+        self.navigationItem.title = @"YUMYUK";
+     
+    }
+    return self;
+}
 
 /*
 // Override to support conditional editing of the table view.

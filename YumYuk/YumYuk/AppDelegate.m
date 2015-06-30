@@ -7,10 +7,15 @@
 //
 
 #import "AppDelegate.h"
-
 #import "RestaurantViewController.h"
+#import "RestaurantList.h"
+#import "Restaurant.h"
 
 #import <Parse/Parse.h>
+
+#import "EATMenuParser.h"
+#import "EATMenu.h"
+#import "EATMenuDownloader.h"
 
 
 @interface AppDelegate ()
@@ -21,24 +26,57 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
 
+    
+    
+
+    // Create an item store
+    RestaurantList *restaurants = [[RestaurantList alloc] init];
 
     
+    // Create a RestaurantViewController
+    RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithRestaurants:restaurants];
     
+    // Create the navigation controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rvc];
     
-    // Initializes the window
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Use nav controller as the top-level view controller
+    self.window.rootViewController = navController;
     
-    // Creates the RestaurantsViewController
-    RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithStyle:UITableViewStylePlain];
-    // Use this view controller as the top-level view controller in the app
-    self.window.rootViewController = rvc;
-    
-    [self.window makeKeyAndVisible];
-
     //Initialize Parse
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
+    
+    
+    //get MPKEats content to our app
+    EATMenuDownloader *down = [[EATMenuDownloader alloc] init];
+    __block NSArray *menus = nil;
+    [down downloadCurrentMenus:^(NSArray *menuss, NSError *error) {
+        menus = menuss;
+        if (!menus) {
+            NSLog(@"ERROR: %@", error);
+            return;
+        }
+        // get the restaurant storage
+        NSMutableSet *restaurantStorage = [[NSMutableSet alloc] init];
+        restaurantStorage = [Restaurant storeMenus:menus];
+        
+        // use parse to upload the storage data
+        [Restaurant parseMenus:restaurantStorage];
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }];
+
     
 
     return YES;

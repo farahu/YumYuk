@@ -35,7 +35,6 @@ static NSInteger const kAllMenusBeforeDateQueryLimit = 100;
 - (void)downloadCurrentMenus:(void (^)(NSArray *menus, NSError*error))callback
 {
     NSString *limitClause = [NSString stringWithFormat:@"LIMIT %lu", (long)kCurrentMenusQueryLimit];
-    NSLog(@"gah");
     [self downloadMenusWithAdditionalWhereClause:@"" limitClause:limitClause callback:callback];
 }
 
@@ -74,7 +73,6 @@ static NSInteger const kAllMenusBeforeDateQueryLimit = 100;
     NSString *url = [NSString stringWithFormat:kEndPointFormat,
                      [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
                      [kEATAccessToken stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     NSURLResponse *resp = nil;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&resp error:nil];
