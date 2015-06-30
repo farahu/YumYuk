@@ -59,12 +59,6 @@
             NSLog(@"ERROR: %@", error);
             return;
         }
-        
-        // for testing
-        for (EATMenu *menu in menus) {
-            NSLog(@"%@", menu.menuText);
-        }
-        
         // get the restaurant storage
         NSMutableSet *restaurantStorage = [[NSMutableSet alloc] init];
         restaurantStorage = [Restaurant storeMenus:menus];

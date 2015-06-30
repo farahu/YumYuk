@@ -36,7 +36,6 @@
 		F15C2E5C1B4217BE00D0A7EE /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F15C2E5B1B4217BE00D0A7EE /* MenuItem.m */; };
 		F15C2E5F1B4219A500D0A7EE /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = F15C2E5E1B4219A500D0A7EE /* Restaurant.m */; };
 		F15C2E641B424DEE00D0A7EE /* menuForTest in Resources */ = {isa = PBXBuildFile; fileRef = F15C2E631B424DEE00D0A7EE /* menuForTest */; };
-		F15C2E661B42F14900D0A7EE /* menuForTestTUe in Resources */ = {isa = PBXBuildFile; fileRef = F15C2E651B42F14900D0A7EE /* menuForTestTUe */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +92,6 @@
 		F15C2E5D1B4219A500D0A7EE /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		F15C2E5E1B4219A500D0A7EE /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		F15C2E631B424DEE00D0A7EE /* menuForTest */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = menuForTest; path = ../YumYuk/menuForTest; sourceTree = "<group>"; };
-		F15C2E651B42F14900D0A7EE /* menuForTestTUe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = menuForTestTUe; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,7 +200,6 @@
 			isa = PBXGroup;
 			children = (
 				F15C2E631B424DEE00D0A7EE /* menuForTest */,
-				F15C2E651B42F14900D0A7EE /* menuForTestTUe */,
 				19045E0E1B41BF2F0040AC88 /* YumYukTests.m */,
 				19045E0C1B41BF2F0040AC88 /* Supporting Files */,
 			);
@@ -308,7 +305,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F15C2E661B42F14900D0A7EE /* menuForTestTUe in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
