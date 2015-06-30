@@ -51,7 +51,20 @@
     
     // Create the navigation controller
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rvc];
-    
+    [[UINavigationBar appearance] setTintColor:[UIColor grayColor]];
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:.6 green:1 blue:1 alpha:1]];
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+           NSForegroundColorAttributeName: [UIColor darkGrayColor],
+           NSFontAttributeName: [UIFont fontWithName:@"Courier New" size:25.0f],
+           NSShadowAttributeName: [NSShadow new]
+           }];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil]
+     setTitleTextAttributes:
+     @{NSForegroundColorAttributeName:[UIColor clearColor],
+       NSShadowAttributeName:[NSShadow new],
+       NSFontAttributeName:[UIFont boldSystemFontOfSize:10.0]
+       }
+     forState:UIControlStateNormal];
     // Use nav controller as the top-level view controller
     self.window.rootViewController = navController;
     

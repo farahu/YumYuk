@@ -58,7 +58,7 @@
     if (self) {
         self.listOfRestaurants = restaurantList;
         self.navigationItem.title = @"YUMYUK";
-     
+            
     }
     return self;
 }
@@ -71,6 +71,10 @@
      // Push this onto the navigation stack
     [self showViewController:ipc sender:self];
     
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75;
 }
 
 /*
