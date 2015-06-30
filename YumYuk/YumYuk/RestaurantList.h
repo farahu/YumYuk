@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class RestaurantViewController;
+@class IndividualPageController;
 
 @interface RestaurantList : NSObject
 @property (nonatomic) NSArray *restaurants;
+@property (nonatomic) NSArray *menuItems;
 
 - (instancetype)init;
 - (void) loadRestaurants:(RestaurantViewController*)controller;
-
+- (void) loadMenu:(IndividualPageController *)controller withRestList:(RestaurantList *)rest andRestaurant:(NSInteger)selectedRestaurant;
 @end
