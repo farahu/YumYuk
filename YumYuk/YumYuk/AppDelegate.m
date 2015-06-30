@@ -9,6 +9,16 @@
 #import "AppDelegate.h"
 #import "RestaurantViewController.h"
 #import "RestaurantList.h"
+
+#import "Restaurant.h"
+
+#import <Parse/Parse.h>
+
+#import "EATMenuParser.h"
+#import "EATMenu.h"
+#import "EATMenuDownloader.h"
+
+
 #import "DatabaseAccess.h"
 #import "YYConstants.h"
 
@@ -21,6 +31,7 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     //Check for existing user id
     NSString *userId = [[NSUserDefaults standardUserDefaults]
                             stringForKey:@"userId"];
@@ -45,6 +56,7 @@
     
     // Create an item store
     RestaurantList *restaurants = [[RestaurantList alloc] init];
+
     
     // Create a RestaurantViewController
     RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithRestaurants:restaurants];
@@ -55,7 +67,44 @@
     
     // Use nav controller as the top-level view controller
     self.window.rootViewController = navController;
+
+    //Initialize Parse
+    [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
+                  clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
     
+    
+    //get MPKEats content to our app
+    EATMenuDownloader *down = [[EATMenuDownloader alloc] init];
+    __block NSMutableArray *menus = nil;
+    [down downloadCurrentMenus:^(NSArray *menuss, NSError *error) {
+        if (!menuss) {
+            NSLog(@"ERROR: %@", error);
+            return;
+        }
+        
+        menus = [[NSMutableArray alloc] init];
+        for (EATMenu *menu in menuss) {
+            if (![menu.cafeName containsString:@"Sweet"]) {
+                [menus addObject:menu];
+            }
+        }
+        
+        
+        
+        // for testing
+        for (EATMenu *menu in menus) {
+            NSLog(@"%@", menu.cafeName);
+        }
+        
+        // get the restaurant storage
+        NSMutableSet *restaurantStorage = [[NSMutableSet alloc] init];
+        restaurantStorage = [Restaurant storeMenus:menus];
+        
+        // use parse to upload the storage data
+        [Restaurant parseMenus:restaurantStorage];
+        
+    }];
+
     return YES;
 }
 
