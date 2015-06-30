@@ -52,17 +52,25 @@
     
     //get MPKEats content to our app
     EATMenuDownloader *down = [[EATMenuDownloader alloc] init];
-    __block NSArray *menus = nil;
+    __block NSMutableArray *menus = nil;
     [down downloadCurrentMenus:^(NSArray *menuss, NSError *error) {
-        menus = menuss;
-        if (!menus) {
+        if (!menuss) {
             NSLog(@"ERROR: %@", error);
             return;
         }
         
+        menus = [[NSMutableArray alloc] init];
+        for (EATMenu *menu in menuss) {
+            if (![menu.cafeName containsString:@"Sweet"]) {
+                [menus addObject:menu];
+            }
+        }
+        
+        
+        
         // for testing
         for (EATMenu *menu in menus) {
-            NSLog(@"%@", menu.menuText);
+            NSLog(@"%@", menu.cafeName);
         }
         
         // get the restaurant storage
@@ -71,15 +79,6 @@
         
         // use parse to upload the storage data
         [Restaurant parseMenus:restaurantStorage];
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
     }];
 
