@@ -66,7 +66,7 @@
             [rest addObject:temp];
         }
         // create restaurant object for this restaurant
-        resTemp = [[Restaurant alloc] initWithRestaurant:menu.cafeName menuItems:rest];
+        resTemp = [[Restaurant alloc] initWithRestaurant:menu.cafeName menuItems:rest menuType:menu.mealType];
         // store this restaurant array inside final big store
         [store addObject:resTemp];
         
@@ -79,20 +79,19 @@
     return store;
 }
 
-// [restaurant[menuItem]]
-// MARK: - unfinished!!
-+ (void) parseMenus: (NSMutableSet *) store
-{
-    return;
-}
 
-- (instancetype) initWithRestaurant: (NSString *) resName menuItems: (NSMutableSet *) d
+
+- (instancetype) initWithRestaurant: (NSString *) resName
+                          menuItems: (NSMutableSet *) d
+                            menuType:(NSString *)mType
 {
     self = [super init];
     if (self) {
         
         _restaurantName = resName;
         _dishes = d;
+        _mealType = mType;
+        
     }
     return self;
 }

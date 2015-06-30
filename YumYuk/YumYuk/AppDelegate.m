@@ -17,6 +17,7 @@
 #import "EATMenuParser.h"
 #import "EATMenu.h"
 #import "EATMenuDownloader.h"
+#import "MenuItem.h"
 
 #import "DatabaseAccess.h"
 #import "YYConstants.h"
@@ -30,32 +31,19 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-    //Check for existing user id
-    NSString *userId = [[NSUserDefaults standardUserDefaults]
-                            stringForKey:@"userId"];
-    if(userId){
-        NSLog(@"Found userId: %@", userId);
-    } else {
-        userId = [[NSUUID UUID] UUIDString];
-        NSLog(@"No existing user, adding new: %@", userId);
-        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    USER_ID = userId;
-    
+    [self setUserID];
     //Initialize Parse
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
     
     //TEMPORARY -- test that adds things to the server then downloads them and logs them
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-     //   [DatabaseAccess testDatabase];
+        //   [DatabaseAccess testDatabase];
+        [self downloadMPKEatsData];
     });
-
+    
     // Create an item store
     RestaurantList *restaurants = [[RestaurantList alloc] init];
-
     
     // Create a RestaurantViewController
     RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithRestaurants:restaurants];
@@ -66,12 +54,25 @@
     
     // Use nav controller as the top-level view controller
     self.window.rootViewController = navController;
+    
+    return YES;
+}
 
-    //Initialize Parse
-    [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
-                  clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
-    
-    
+-(void)setUserID{
+    NSString *userId = [[NSUserDefaults standardUserDefaults]
+                        stringForKey:@"userId"];
+    if(userId){
+        NSLog(@"Found userId: %@", userId);
+    } else {
+        userId = [[NSUUID UUID] UUIDString];
+        NSLog(@"No existing user, adding new: %@", userId);
+        [[NSUserDefaults standardUserDefaults] setObject:userId forKey:@"userId"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    USER_ID = userId;
+}
+
+-(void)downloadMPKEatsData {
     //get MPKEats content to our app
     EATMenuDownloader *down = [[EATMenuDownloader alloc] init];
     __block NSMutableArray *menus = nil;
@@ -87,9 +88,7 @@
                 [menus addObject:menu];
             }
         }
-        
-        
-        
+
         // for testing
         for (EATMenu *menu in menus) {
             NSLog(@"%@", menu.cafeName);
@@ -99,13 +98,16 @@
         NSMutableSet *restaurantStorage = [[NSMutableSet alloc] init];
         restaurantStorage = [Restaurant storeMenus:menus];
         
-        // use parse to upload the storage data
-        [Restaurant parseMenus:restaurantStorage];
-        
+        for (Restaurant *res in restaurantStorage) {
+            for (MenuItem *dish in res.dishes) {
+                [DatabaseAccess addNewMenuItem:dish.dishName
+                                          type:dish.type
+                                          diet:dish.diet
+                                    restaurant:dish.restaurantName];
+            }
+            [DatabaseAccess addRestaurant:res.restaurantName code:res.mealType];
+        }
     }];
-
-
-    return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -117,4 +119,17 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application {
+    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
 @end
