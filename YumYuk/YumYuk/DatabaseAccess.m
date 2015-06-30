@@ -24,7 +24,7 @@
     
     //Check if will be duplicate
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_MENU_ITEM];
-    [query whereKey:KEY_MENUID equalTo:@(menuID)];
+    [query whereKey:KEY_NAME equalTo:name];
     NSArray *array = [query findObjects];
     
     if ([array count] != 0) {
@@ -57,7 +57,7 @@
     
     //Check if will be duplicate
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_RESTAURANT];
-    [query whereKey:KEY_MENUID equalTo:name];
+    [query whereKey:KEY_NAME equalTo:name];
     NSArray *array = [query findObjects];
     
     if ([array count] != 0) {

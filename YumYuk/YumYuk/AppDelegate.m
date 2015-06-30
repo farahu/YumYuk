@@ -38,7 +38,7 @@
     
     //TEMPORARY -- test that adds things to the server then downloads them and logs them
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [DatabaseAccess testDatabase];
+        //[DatabaseAccess testDatabase];
         //[self downloadMPKEatsData];
     });
     
@@ -98,13 +98,17 @@
         NSMutableSet *restaurantStorage = [[NSMutableSet alloc] init];
         restaurantStorage = [Restaurant storeMenus:menus];
         
+        //NSMutableSet *added = [[NSMutableSet alloc] init];
+        
         for (Restaurant *res in restaurantStorage) {
             for (MenuItem *dish in res.dishes) {
+                //if([added containsObject:dish.dishName])continue;
                 [DatabaseAccess addNewMenuItem:dish.dishName
                                           type:dish.type
                                           diet:dish.diet
                                     restaurant:dish.restaurantName
                                         menuID:dish.menuID];
+                NSLog(@"ITEM: %@", dish.dishName);
             }
             [DatabaseAccess addRestaurant:res.restaurantName code:res.mealType];
         }
