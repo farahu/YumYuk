@@ -62,7 +62,7 @@
         // make menu items and store them in array called rest under
         // the name of this restaurant
         for (NSString *d in tempDishes) {
-            temp = [[MenuItem alloc ]initWithDishName: d restaurant: menu.cafeName];
+            temp = [[MenuItem alloc ]initWithDishName: d restaurant: menu.cafeName menuID:menu.menuID];
             [rest addObject:temp];
         }
         // create restaurant object for this restaurant

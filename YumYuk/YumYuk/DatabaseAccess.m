@@ -14,6 +14,7 @@
 
 //TEMP METHODS
 
+/*
 +(void) testDatabase {
     NSLog(@"Testing");
     [DatabaseAccess addRestaurant:@"Living the Dream" code:@"ltd"];
@@ -39,12 +40,25 @@
         }
     }];
 }
+ 
+ */
 
 +(void) addNewMenuItem:(NSString *)name type:(NSString *)type diet:(NSInteger)diet
-            restaurant:(NSString *)restaurant {
+            restaurant:(NSString *)restaurant menuID:(int64_t)menuID {
+    
+    
+    //Check if will be duplicate
+    PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_MENU_ITEM];
+    [query whereKey:KEY_MENUID equalTo:@(menuID)];
+    NSArray *array = [query findObjects];
+    
+    if ([array count] != 0) {
+        return;
+    }
+    
     //Create initial object
     PFObject *menuItem = [PFObject objectWithClassName:CLASSNAME_MENU_ITEM];
-
+    
     //Set properties
     menuItem[KEY_NAME] = name;
     menuItem[KEY_TYPE] = type;
@@ -52,6 +66,7 @@
     menuItem[KEY_UPVOTES] = @(0);
     menuItem[KEY_DOWNVOTES] = @(0);
     menuItem[KEY_RESTAURANT] = restaurant;
+    menuItem[KEY_MENUID] = @(menuID);
     
     NSError *error = nil;
     //Save to database
@@ -59,9 +74,20 @@
     if(error){
         NSLog(@"ERROR: %@", error);
     }
+
+    
 }
 
-+(void) addRestaurant:(NSString *)name code:(NSString *)code{
++(void) addRestaurant:(NSString *)name code:(NSString *)code {
+    
+    //Check if will be duplicate
+    PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_RESTAURANT];
+    [query whereKey:KEY_MENUID equalTo:name];
+    NSArray *array = [query findObjects];
+    
+    if ([array count] != 0) {
+        return;
+    }
     //Create initial object
     PFObject *restaurant = [PFObject objectWithClassName:CLASSNAME_RESTAURANT];
     
@@ -75,7 +101,9 @@
     if(error){
         NSLog(@"ERROR: %@", error);
     }
-}
+
+    
+   }
 
 //ADD METHODS
 

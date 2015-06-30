@@ -103,7 +103,8 @@
                 [DatabaseAccess addNewMenuItem:dish.dishName
                                           type:dish.type
                                           diet:dish.diet
-                                    restaurant:dish.restaurantName];
+                                    restaurant:dish.restaurantName
+                                        menuID:dish.menuID];
             }
             [DatabaseAccess addRestaurant:res.restaurantName code:res.mealType];
         }

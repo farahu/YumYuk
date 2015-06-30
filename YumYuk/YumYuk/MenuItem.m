@@ -11,20 +11,22 @@
 @implementation MenuItem
 
 
-- (instancetype) initWithDishName: (NSString *) dName restaurant: (NSString *) resName
+- (instancetype) initWithDishName: (NSString *) dName
+                       restaurant: (NSString *) resName
+                           menuID: (int64_t) mID
 {
     self = [super init];
     if (self) {
         self.dishName = dName;
         self.restaurantName = resName;
+        self.menuID = mID; // MARK: - caution?
         
         // default settings
         self.upvotes = 0;
         self.downvotes = 0;
         self.type = @""; // MARK: - what is type n diet?
         self.diet = [self getDiet:self.dishName];
-        
-    }
+            }
     return self;
 }
 

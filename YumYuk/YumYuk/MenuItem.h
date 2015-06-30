@@ -16,7 +16,10 @@
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, assign) NSInteger diet;
 @property (nonatomic, copy) NSString *restaurantName;
+@property (nonatomic) int64_t menuID;
 
 
-- (instancetype) initWithDishName: (NSString *) dName restaurant: (NSString *) resName NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithDishName: (NSString *) dName
+                       restaurant: (NSString *) resName
+                           menuID: (int64_t) mID NS_DESIGNATED_INITIALIZER;
 @end

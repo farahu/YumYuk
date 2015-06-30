@@ -26,5 +26,6 @@ NSString* const KEY_CODE = @"code";
 NSString* const KEY_PARENT = @"parent";
 NSString* const KEY_USER = @"user";
 NSString* const KEY_TEXT = @"text";
+NSString* const KEY_MENUID = @"menuID";
 
 @end

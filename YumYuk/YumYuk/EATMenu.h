@@ -15,7 +15,7 @@
 @property (nonatomic, readonly) NSString *mealType;
 @property (nonatomic, readonly) NSDate *date;
 @property (nonatomic, copy) NSString *menuText;
-@property (nonatomic, readonly) int64_t menuID;
+@property (nonatomic, readonly) int64_t menuID;// deleted the readOnly property
 
 - (instancetype)initWithMenuCategory:(NSString *)category
                             mealType:(NSString *)mealType

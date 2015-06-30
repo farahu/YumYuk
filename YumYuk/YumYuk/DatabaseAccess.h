@@ -14,14 +14,15 @@
 //NOT USED IN APP, USED FOR MANAGING INITIAL DATA
 
 //Temporary test method - adds items and polls them
-+(void) testDatabase;
+// +(void) testDatabase;
 
 //Adds a new menu item with the specified parameters, setting their upvote/downvote
 //counts to 0. Should only be called after all the restaurants are added.
 +(void)addNewMenuItem:(NSString*)name
                  type:(NSString*)type
                  diet:(NSInteger)diet
-           restaurant:(NSString *)restaurant;
+           restaurant:(NSString *)restaurant
+               menuID:(int64_t)menuID;
 
 //Adds the specified restaurant
 +(void)addRestaurant:(NSString*)name code:(NSString*)code;
