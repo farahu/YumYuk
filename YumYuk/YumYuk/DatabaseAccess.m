@@ -118,6 +118,7 @@
         }
     }];
 }
+
 +(void) getCommentsForMenuItem:(PFObject *)menuItem callback:(void (^)(NSArray *))callback {
     PFQuery *query = [PFQuery queryWithClassName:CLASSNAME_COMMENT];
     [query whereKey:KEY_PARENT equalTo:menuItem];
@@ -129,4 +130,5 @@
         }
     }];
 }
+
 @end
