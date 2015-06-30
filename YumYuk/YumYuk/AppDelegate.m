@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
 #import "RestaurantViewController.h"
+#import "RestaurantList.h"
 
 #import <Parse/Parse.h>
 
@@ -22,17 +22,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
+    // Create an item store
+    RestaurantList *restaurants = [[RestaurantList alloc] init];
     
-    // Initializes the window
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Create a RestaurantViewController
+    RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithRestaurants:restaurants];
     
-    // Creates the RestaurantsViewController
-    RestaurantViewController *rvc = [[RestaurantViewController alloc] initWithStyle:UITableViewStylePlain];
-    // Use this view controller as the top-level view controller in the app
-    self.window.rootViewController = rvc;
+    // Create the navigation controller
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:rvc];
     
-    [self.window makeKeyAndVisible];
-
+    // Use nav controller as the top-level view controller
+    self.window.rootViewController = navController;
+    
     //Initialize Parse
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
