@@ -27,3 +27,9 @@ DerivedData
 # http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
 #
 #Pods/
+
+YumYuk/YumYuk.xcodeproj/project.xcworkspace/xcuserdata/farahu.xcuserdatad/UserInterfaceState.xcuserstate
+
+*.xcuserstate
+
+YumYuk/YumYuk.xcodeproj/project.xcworkspace/xcuserdata/maunvz.xcuserdatad/UserInterfaceState.xcuserstate

@@ -1,30 +1,31 @@
 //
-//  RestaurantsViewControllerTableViewController.m
+//  IndividualPageControllerTableViewController.m
 //  YumYuk
 //
-//  Created by Kristina Liang on 6/29/15.
+//  Created by Kristina Liang on 6/30/15.
 //  Copyright (c) 2015 Big Nerd Ranch. All rights reserved.
 //
 
-#import "RestaurantViewController.h"
-#import "RestaurantViewCell.h"
-#import "RestaurantList.h"
 #import "IndividualPageController.h"
+#import "RestaurantList.h"
+#import <Parse/Parse.h>
+#import "DatabaseAccess.h"
 
-@interface RestaurantViewController ()
+@interface IndividualPageController ()
 @property (nonatomic) RestaurantList *listOfRestaurants;
+@property (nonatomic) NSInteger restIndex;
 @end
 
-@implementation RestaurantViewController
+@implementation IndividualPageController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
+   [super viewDidLoad];
     
-    // Load the restaurantViewCell nib
-    UINib *restaurantNib = [UINib nibWithNibName:@"RestaurantViewCell" bundle:nil];
-    
-    // Register this nib as the template for new cells
-    [self.tableView registerNib:restaurantNib forCellReuseIdentifier:@"RestaurantViewCell"];
+   PFObject *restaurant = _listOfRestaurants.restaurants[_restIndex];
+    //KEY_CODE
+   [DatabaseAccess getMenuItemsByRestaurant:restaurant[@"code"] callback:^(NSArray *items) {
+       
+   }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,43 +36,35 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.listOfRestaurants.restaurants.count;
+    return 1;
 }
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RestaurantViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantViewCell" forIndexPath:indexPath];
-    NSString *rList = self.listOfRestaurants.restaurants[indexPath.row][@"name"];
-    cell.restaurantName.text = rList;
-    return cell;
-}
-
-- (instancetype)initWithRestaurants:(RestaurantList *)restaurantList {
-    self = [super initWithNibName:nil bundle:nil];
+- (instancetype)initWithRestaurantList:(RestaurantList *)rest atIndex:(NSInteger)rIndex{
+    self = [super init];
     if (self) {
-        self.listOfRestaurants = restaurantList;
-        self.navigationItem.title = @"YUMYUK";
-     
+        self.listOfRestaurants = rest;
+        self.restIndex = rIndex;
+        NSString *rName = self.listOfRestaurants.restaurants[_restIndex][@"name"];
+        self.navigationItem.title = rName;
     }
     return self;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
-    // Create the individual page view controller
-    IndividualPageController *ipc = [[IndividualPageController alloc] initWithRestaurantList:_listOfRestaurants atIndex:indexPath.row];
+    // Configure the cell...
     
-    // Push this onto the navigation stack
-    [self showViewController:ipc sender:self];
-    
+    return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.
