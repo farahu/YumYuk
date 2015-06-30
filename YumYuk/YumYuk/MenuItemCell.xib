@@ -2,41 +2,62 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D2134" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItemCell" rowHeight="114" id="emX-iG-faX" customClass="MenuItemCell">
-            <rect key="frame" x="0.0" y="0.0" width="478" height="114"/>
+        <tableViewCell contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuItemCell" rowHeight="200" id="emX-iG-faX" customClass="MenuItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="598" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="emX-iG-faX" id="8vQ-ds-pz4">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Menu Item" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXB-Wj-Ie4">
-                        <rect key="frame" x="36" y="46" width="82" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3of-wX-ZSH">
+                        <rect key="frame" x="518" y="56" width="45" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3of-wX-ZSH">
-                        <rect key="frame" x="405" y="46" width="45" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wr-Sx-7mx">
-                        <rect key="frame" x="404" y="8" width="30" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Wr-Sx-7mx">
+                        <rect key="frame" x="525" y="18" width="30" height="30"/>
                         <state key="normal" title="^">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzH-9m-v76">
-                        <rect key="frame" x="396" y="75" width="69" height="30"/>
-                        <state key="normal" title="Downvote">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXB-Wj-Ie4">
+                        <rect key="frame" x="10" y="51" width="506" height="32"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Menu Item">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="17" name="HelveticaNeue-Bold"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rzH-9m-v76">
+                        <rect key="frame" x="525" y="99" width="30" height="30"/>
+                        <state key="normal" title="^">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="3of-wX-ZSH" secondAttribute="trailing" constant="27" id="8OI-l4-vRq"/>
+                    <constraint firstAttribute="centerX" secondItem="MXB-Wj-Ie4" secondAttribute="centerX" constant="119.5" id="C0j-p5-oBo"/>
+                    <constraint firstItem="rzH-9m-v76" firstAttribute="centerX" secondItem="3of-wX-ZSH" secondAttribute="centerX" constant="-0.5" id="C73-eG-KEd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="rzH-9m-v76" secondAttribute="trailing" constant="35" id="FeE-G3-3WK"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rzH-9m-v76" secondAttribute="bottom" constant="12" id="IvP-jd-0RP"/>
+                    <constraint firstItem="MXB-Wj-Ie4" firstAttribute="centerY" secondItem="3of-wX-ZSH" secondAttribute="centerY" constant="0.5" id="NLQ-tp-5Si"/>
+                    <constraint firstItem="4Wr-Sx-7mx" firstAttribute="top" secondItem="8vQ-ds-pz4" secondAttribute="topMargin" constant="10" id="egy-o4-jrv"/>
+                    <constraint firstItem="4Wr-Sx-7mx" firstAttribute="trailing" secondItem="rzH-9m-v76" secondAttribute="trailing" id="oIJ-wH-BLc"/>
+                    <constraint firstItem="3of-wX-ZSH" firstAttribute="top" secondItem="8vQ-ds-pz4" secondAttribute="topMargin" constant="48" id="soj-jo-z1r"/>
+                    <constraint firstItem="4Wr-Sx-7mx" firstAttribute="centerX" secondItem="3of-wX-ZSH" secondAttribute="centerX" constant="-0.5" id="viG-2P-aQb"/>
+                    <constraint firstItem="MXB-Wj-Ie4" firstAttribute="leading" secondItem="8vQ-ds-pz4" secondAttribute="leadingMargin" constant="2" id="yWe-lf-K3s"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="downvote" destination="rzH-9m-v76" id="BJM-Hx-BT6"/>
@@ -44,7 +65,7 @@
                 <outlet property="menuItem" destination="MXB-Wj-Ie4" id="2fv-jQ-jDa"/>
                 <outlet property="upvote" destination="4Wr-Sx-7mx" id="11d-7e-zAx"/>
             </connections>
-            <point key="canvasLocation" x="481" y="291"/>
+            <point key="canvasLocation" x="559" y="464.5"/>
         </tableViewCell>
     </objects>
 </document>
