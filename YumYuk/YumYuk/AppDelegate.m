@@ -38,7 +38,7 @@
     
     //TEMPORARY -- test that adds things to the server then downloads them and logs them
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //   [DatabaseAccess testDatabase];
+     //   [DatabaseAccess testDatabase];
         [self downloadMPKEatsData];
     });
     
