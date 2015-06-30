@@ -21,12 +21,15 @@
            restaurant:(NSString *)restaurant;
 
 //Adds the specified restaurant
-+(void)addRestaurant:(NSString*)name;
++(void)addRestaurant:(NSString*)name code:(NSString*)code;
 
 //Gets all of the menu items with the corresponding restaurant name
 //and returns them in the items parameters of the block, which is an
 //array of PGObjects
-+(void)getMenuItemsByRestaurant:(NSString*)name
++(void)getMenuItemsByRestaurant:(NSString*)code
                        callback:(void(^)(NSArray* items))callback;
+
+//Gets a list of all the restaurants
++(void)getRestaurants:(void(^)(NSArray* items))callback;
 
 @end

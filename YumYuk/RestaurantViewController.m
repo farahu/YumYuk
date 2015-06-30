@@ -47,7 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RestaurantViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantViewCell" forIndexPath:indexPath];
-    NSString *rList = self.listOfRestaurants.restaurants[indexPath.row];
+    NSString *rList = self.listOfRestaurants.restaurants[indexPath.row][@"name"];
     cell.restaurantName.text = rList;
     return cell;
 }

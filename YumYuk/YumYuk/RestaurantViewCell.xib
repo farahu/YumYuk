@@ -14,13 +14,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVn-oo-OsX">
-                        <rect key="frame" x="476" y="43" width="45" height="20.5"/>
+                        <rect key="frame" x="476" y="43" width="45" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYh-ig-ta5">
-                        <rect key="frame" x="28" y="34" width="45.5" height="39"/>
+                        <rect key="frame" x="28" y="34" width="46" height="39"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="bic-Xs-Ac6"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="vss-g6-asV"/>
