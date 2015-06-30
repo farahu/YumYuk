@@ -7,9 +7,12 @@
 //
 
 #import "CommentViewController.h"
+#import "YYConstants.h"
+#import "RestaurantList.h"
 
 @interface CommentViewController ()
 @property (nonatomic) PFObject* foodItem;
+@property (nonatomic) RestaurantList* listOfRestaurants;
 @end
 
 @implementation CommentViewController
@@ -17,11 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"UITableViewCell"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,34 +31,33 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.listOfRestaurants.menuComments.count;
 }
 
-- (instancetype)initWithMenuItem:(PFObject *)menuItem {
+- (instancetype)initWithMenuItem:(PFObject *)menuItem andRestaurant:(RestaurantList *)rest{
     self = [super init];
     if (self) {
-        
+        self.foodItem = menuItem;
+        self.listOfRestaurants = rest;
+        NSString *Name = self.foodItem[KEY_NAME];
+        self.navigationItem.title = Name;
     }
     return self;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    cell.textLabel.text = self.listOfRestaurants.menuComments[indexPath.row][KEY_TEXT];
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.

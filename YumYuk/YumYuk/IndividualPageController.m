@@ -76,9 +76,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    //[DatabaseAccess addCommentToMenuItem:self.listOfRestaurants.menuItems[indexPath.row] text:@"This is great!"];
     // Create the individual page view controller
-    CommentViewController *cpc = [[CommentViewController alloc] initWithMenuItem:self.listOfRestaurants.menuItems[indexPath.row]];
+    CommentViewController *cpc = [[CommentViewController alloc] initWithMenuItem:self.listOfRestaurants.menuItems[indexPath.row] andRestaurant:self.listOfRestaurants];
     [self.listOfRestaurants loadComments:cpc forMenuItem:self.listOfRestaurants.menuItems[indexPath.row]];
     // Push this onto the navigation stack
     [self showViewController:cpc sender:self];

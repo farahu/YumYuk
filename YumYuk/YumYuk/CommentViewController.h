@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
+@class RestaurantList;
+
 @interface CommentViewController : UITableViewController
-- (instancetype)initWithMenuItem:(PFObject *)menuItem;
+- (instancetype)initWithMenuItem:(PFObject *)menuItem andRestaurant:(RestaurantList *)rest;
 @end
