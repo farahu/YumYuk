@@ -31,6 +31,7 @@
 		B996E4FE1B41C602004EEF45 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B996E4FD1B41C602004EEF45 /* libsqlite3.dylib */; };
 		B996E5671B424450004EEF45 /* DatabaseAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = B996E5661B424450004EEF45 /* DatabaseAccess.m */; };
 		B996E5691B426FB7004EEF45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B996E5681B426FB7004EEF45 /* Main.storyboard */; };
+		B996E56C1B42FB47004EEF45 /* YYConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = B996E56B1B42FB47004EEF45 /* YYConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		B996E5651B424450004EEF45 /* DatabaseAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseAccess.h; sourceTree = "<group>"; };
 		B996E5661B424450004EEF45 /* DatabaseAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseAccess.m; sourceTree = "<group>"; };
 		B996E5681B426FB7004EEF45 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B996E56A1B42FB47004EEF45 /* YYConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYConstants.h; sourceTree = "<group>"; };
+		B996E56B1B42FB47004EEF45 /* YYConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYConstants.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 				19045E011B41BF2F0040AC88 /* LaunchScreen.xib */,
 				B996E5651B424450004EEF45 /* DatabaseAccess.h */,
 				B996E5661B424450004EEF45 /* DatabaseAccess.m */,
+				B996E56A1B42FB47004EEF45 /* YYConstants.h */,
+				B996E56B1B42FB47004EEF45 /* YYConstants.m */,
 				19045DF21B41BF2F0040AC88 /* Supporting Files */,
 			);
 			path = YumYuk;
@@ -292,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				19045DF81B41BF2F0040AC88 /* AppDelegate.m in Sources */,
+				B996E56C1B42FB47004EEF45 /* YYConstants.m in Sources */,
 				97B9BBD51B42059000D972D1 /* RestaurantList.m in Sources */,
 				B996E5671B424450004EEF45 /* DatabaseAccess.m in Sources */,
 				19045DF51B41BF2F0040AC88 /* main.m in Sources */,
