@@ -9,21 +9,42 @@
 #import "Restaurant.h"
 #import "MenuItem.h"
 #import "EATMenu.h"
-
+#import "EATConsts.h"
 #import <Parse/Parse.h>
 
 @implementation Restaurant
 
 + (NSMutableSet *) processMenu: (NSString *) menuText
 {
-    NSMutableSet *d = [[NSMutableSet alloc] init];
+    NSMutableSet *menuItems = [[NSMutableSet alloc] init];
     
-    // processing rules:
-    // 1. if line starts with "(", ""
+    // break up data by break lines
+    NSMutableArray *data = [[menuText componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]] mutableCopy];
     
+    for (NSString *name in data) {
+        // start at a category name, skip over Enjoy/Sides
+        if ([[EATConsts categoryNames] containsObject:name] && !([name isEqualToString:@"~Enjoy~"] || [name isEqualToString:@"Enjoy!"] || [name isEqualToString:@"Sides"])) {
+            NSUInteger index = [data indexOfObject:name];
+            if ([name isEqualToString:@"Boba Tea Menu:"]) {
+                index += 2;
+            }
+            
+            // make sure next item is not out of bounds, stop going through items if it's another category or if it's a special message indicated by +++
+            while (((index + 1) < data.count) && ![[EATConsts categoryNames] containsObject:[data objectAtIndex:(index+1)]] && ![[data objectAtIndex:(index+1)] containsString:@"+++"]) {
+                index++;
+                NSString *text = [data objectAtIndex:index];
+                NSString *menuItem = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                // special case: Full Circle includes ingredients of their smoothies... we don't want this
+                if (!([name isEqualToString:@"(Smoothie/Juice)"] && [menuItem containsString:@"("]) && !([menuItem isEqualToString:@""])) {
+                    NSLog(@"this is menu item: %@", menuItem);
+                    [menuItems addObject:menuItem]; // add the menu item
+                }
+                
+            }
+        }
+    }
     
-    [d addObject: @"duah"];
-    return d;
+    return menuItems;
 }
 
 // [restaurant[menuItem]]

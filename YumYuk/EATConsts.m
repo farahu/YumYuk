@@ -31,6 +31,15 @@ static NSString *const kDefaultNowServing = @"Now Serving";
     return categories;
 }
 
++ (NSSet *)categoryNames {
+    static NSSet *categories = nil;
+    static dispatch_once_t onceToken = 0;
+    dispatch_once(&onceToken, ^{
+        categories = [[NSSet alloc] initWithArray:@[@"~Enjoy~", @"Sides", @"Enjoy!", @"(Weekly Special)", @"(Pastries)", @"(Smoothie/Juice)", @"(Hot Cereal)", @"(Build Your Own Waffle Bar)", @"Weekly Specials", @"Smoothies", @"Pastries", @"Special", @"Soups", @"Eggs", @"Steamer", @"Starch", @"Vegetable", @"(Entrees)", @"(Vegetarian Dishes)", @"(Starches)", @"(Vegetables)", @"(Bread)", @"(Bread)", @"(Desserts)", @"(Soups)", @"~Entrees ~", @"~Vegetarian Entrees~", @"~Vegetable Entrees~", @"~Starches~", @"~Entrees~", @"~Vegetables~", @"~Soups~", @"~Dessert~", @"~Bread~", @"~Breads~", @"Entrée", @"Veggie Entrées", @"Starches", @"Vegetables", @"Desserts", @"Boba Tea Menu:", @"Beneficial For Health And Well-Being\"", @"Salads", @"Dip/Crackers", @"Smoothie", @"{Entrees}", @"{Sides}", @"{Dessert}", @"Cupcakes", @"Quick Breads", @"Bars", @"Mini Pie", @"Tartlet", @"Cookies"]];
+    });
+    return categories;
+}
+
 + (NSInteger)indexOfCategory:(NSString *)category
 {
     static NSMutableDictionary *indices = nil;

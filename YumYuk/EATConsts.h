@@ -47,5 +47,6 @@ static NSString *const kEATMealTypeDessert = @"Dessert";
 + (NSInteger)indexOfCategory:(NSString *)category;
 + (NSInteger)indexOfCategoryInNowServing:(NSString *)category;
 + (NSDictionary *)menuCategoriesInfo;
++ (NSSet *)categoryNames;
 
 @end
