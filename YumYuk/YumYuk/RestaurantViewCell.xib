@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D2134" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -14,14 +13,14 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1XI-JM-6Mu" id="31t-Un-oyg">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FLH-SH-E4F">
-                        <rect key="frame" x="21" y="42" width="53" height="52"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="FLH-SH-E4F" secondAttribute="height" multiplier="53:52" id="YbN-Kg-2M3"/>
-                        </constraints>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYh-ig-ta5">
-                        <rect key="frame" x="21" y="8" width="108" height="39"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVn-oo-OsX">
+                        <rect key="frame" x="476" y="43" width="45" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYh-ig-ta5">
+                        <rect key="frame" x="28" y="34" width="46" height="39"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="39" id="bic-Xs-Ac6"/>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="39" id="vss-g6-asV"/>
@@ -30,24 +29,15 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVn-oo-OsX">
-                        <rect key="frame" x="480" y="18" width="45" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="WVn-oo-OsX" firstAttribute="centerY" secondItem="nYh-ig-ta5" secondAttribute="centerY" constant="0.5" id="FYq-ox-zCA"/>
-                    <constraint firstItem="FLH-SH-E4F" firstAttribute="top" secondItem="nYh-ig-ta5" secondAttribute="bottom" constant="3" id="lSM-Yn-u8G"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="FLH-SH-E4F" secondAttribute="bottom" constant="1" id="m6f-JD-sL5"/>
-                    <constraint firstItem="nYh-ig-ta5" firstAttribute="leading" secondItem="31t-Un-oyg" secondAttribute="leadingMargin" constant="13" id="npm-tO-cng"/>
-                    <constraint firstItem="nYh-ig-ta5" firstAttribute="top" secondItem="31t-Un-oyg" secondAttribute="topMargin" id="xS6-yN-Dm1"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="WVn-oo-OsX" secondAttribute="trailing" constant="8" id="y3z-Gb-Xtg"/>
+                    <constraint firstAttribute="centerY" secondItem="WVn-oo-OsX" secondAttribute="centerY" constant="1" id="4Ps-0A-0lj"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="WVn-oo-OsX" secondAttribute="trailing" constant="12" id="HtZ-xJ-jbv"/>
+                    <constraint firstAttribute="centerY" secondItem="nYh-ig-ta5" secondAttribute="centerY" constant="0.75" id="PnI-06-Ncv"/>
+                    <constraint firstItem="nYh-ig-ta5" firstAttribute="leading" secondItem="31t-Un-oyg" secondAttribute="leadingMargin" constant="20" id="WFL-2G-mM2"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="restaurantIcon" destination="FLH-SH-E4F" id="nGV-No-pNo"/>
                 <outlet property="restaurantName" destination="nYh-ig-ta5" id="SJo-Op-RWS"/>
                 <outlet property="restaurantScore" destination="WVn-oo-OsX" id="GbG-Qo-JrC"/>
             </connections>
