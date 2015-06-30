@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "RestaurantViewController.h"
 #import "RestaurantList.h"
+#import "DatabaseAccess.h"
 
 #import <Parse/Parse.h>
 
@@ -21,7 +22,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    //TEMPORARY -- test that adds things to the server then downloads them and logs them
+    //dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    //    [DatabaseAccess testDatabase];
+    //});
+    
     // Create an item store
     RestaurantList *restaurants = [[RestaurantList alloc] init];
     
@@ -38,7 +43,6 @@
     [Parse setApplicationId:@"j3XsWst6pkPupgDUs50LIMneCjL1lVaWua0ZqjkZ"
                   clientKey:@"8PoXXIBqC1XvPHnZtuBSx1HqnTV3FJ6FTruajczW"];
     
-
     return YES;
 }
 
