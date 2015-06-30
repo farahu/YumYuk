@@ -94,8 +94,6 @@
     [comment saveInBackground];
 }
 
-
-
 //GET METHODS
 
 +(void) getMenuItemsByRestaurant:(NSString *)code callback:(void (^)(NSArray *))callback {
