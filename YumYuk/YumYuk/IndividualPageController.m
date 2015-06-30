@@ -66,6 +66,8 @@
     MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MenuItemCell" forIndexPath:indexPath];
     NSString *menuItem = self.listOfRestaurants.menuItems[indexPath.row][KEY_NAME];
     cell.menuItem.text = menuItem;
+    cell.item = self.listOfRestaurants.menuItems[indexPath.row];
+    [cell updateScore];
     return cell;
 }
 

@@ -10,7 +10,8 @@
 
 @implementation YYConstants
 
-NSString* USER_ID; //Loaded from user preferences
+NSString *USER_ID; //Loaded from user preferences
+
 NSString* const CLASSNAME_MENU_ITEM = @"MenuItem";
 NSString* const CLASSNAME_RESTAURANT = @"Restaurant";
 NSString* const CLASSNAME_PHOTO = @"Photo";

@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface MenuItemCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *menuItem;
 @property (weak, nonatomic) IBOutlet UILabel *itemScore;
 @property (weak, nonatomic) IBOutlet UIButton *upvote;
 @property (weak, nonatomic) IBOutlet UIButton *downvote;
 @property (weak, nonatomic) IBOutlet UIButton *comments;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfComments;
+@property (nonatomic) PFObject *item;
+- (void) updateScore;
 
 @end
